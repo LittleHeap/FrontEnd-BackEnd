@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h4 align="center">单元格基本结构</h4>
+    <table align="center" border="1" cellpadding="5" cellspacing="5" width="200" height="150">
+        <thead>
+            <tr>
+                <!--th是表头单元格，位于第一行，加粗，居中-->
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>刘德华</td>
+                <td>男</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>郭富城</td>
+                <td>男</td>
+                <td>56</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--合并单元格-->
+    <h4 align="center">单元格合并</h4>
+    <table align="center" border="1">
+        <tr>
+            <th>单元格</th>
+            <th colspan="2">单元格</th>
+        </tr>
+        <tr>
+            <th rowspan="2">单元格</th>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+    </table>
+</body>
+
+</html>
