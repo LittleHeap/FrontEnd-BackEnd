@@ -5,9 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h3 {
+            text-align: center;
+        }
+        
+        .box {
+            width: 600px;
+            margin: auto;
+            background-color: aqua;
+        }
+        
+        .a {
+            width: 200px;
+            height: 200px;
+            background-color: beige;
+            float: left;
+        }
+        
+        .b {
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            float: left;
+        }
+        
+        .clear {
+            /* 额外标签法/隔墙法：必须是块级元素 */
+            clear: both;
+        }
+        
+        .footer {
+            height: 100px;
+            background-color: coral;
+        }
+        
+        .overflow {
+            /* 作用在父级盒子的overflow法 */
+            width: 600px;
+            margin: auto;
+            background-color: aqua;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
+    <h3>由于父级盒子很多情况下不方便给高度，自适应子盒子高度，但是子盒子浮动有不占有位置，最后父级盒子高度为0，就会紧接着影响下面的标准流盒子</h3>
+    <h3>1.额外标签法/隔墙法：必须是块级元素</h3>
+    <div class="box">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer"></div>
+
+    <h3>2.overflow法</h3>
+    <div class="overflow">
+        <div class="a"></div>
+        <div class="b"></div>
+    </div>
+    <div class="footer"></div>
 </body>
 
 </html>
