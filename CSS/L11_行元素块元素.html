@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 200px;
+            height: 30px;
+        }
+        /* 显示模式转换 */
+        
+        a {
+            width: 150px;
+            height: 50px;
+            background-color: deepskyblue;
+            /* 显示模式转换 */
+            display: block;
+        }
+        
+        div {
+            /* 此时转换为行内元素，宽度高度失效 */
+            width: 300px;
+            height: 50px;
+            /* 显示模式转换 */
+            display: inline;
+        }
+        
+        span {
+            width: 100px;
+            height: 30px;
+            background-color: goldenrod;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 块元素：
+        独占一行，
+        可以设置宽高和边距，
+        宽度默认会是父亲的100%
+        块元素是个盒子，里面还可以装别的模式元素
+        p标签和h标签这种文字标签，里面不要再放块元素-->
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <p>p</p>
+    <div>div</div>
+    <ul>
+        <li>ul</li>
+    </ul>
+    <ol>
+        <li>ol</li>
+    </ol>
+
+
+    <!-- 行内/内联元素:
+        一行上能放多个行内元素，
+        高度宽度是不可以设置的
+        宽度是内容本身的宽度
+        行内元素不允许放块元素-->
+    <!-- a里不允许再放a元素，但是可以放块元素 -->
+    <strong>strong</strong>
+    <b>b</b>
+
+
+    <!-- 行内块元素 
+        和行内相邻元素在一行上，但是中间有间隙
+        默认宽度就是内容本身的宽度
+        高度，宽度，边距是可以控制的-->
+    <!-- <img> <input> <td></td> -->
+    <a href="#">a</a>
+    <br>
+    <input type="text">
+
+
+    <!-- 显示模式转换 -->
+
+    <!-- 行内元素转块元素 -->
+    <a href="#">百度</a>
+
+    <!-- 块元素转行内元素 -->
+    <div>div模块</div>
+    <div>div模块</div>
+    <div>div模块</div>
+    <div>div模块</div>
+
+    <!-- 行内元素转换为行内块元素 -->
+    <span>span</span>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgc {
+            width: 400px;
+            height: 400px;
+            /* 背景颜色，默认是transparent */
+            background-color: papayawhip;
+        }
+        
+        .bgi {
+            width: 100%;
+            height: 600px;
+            /* 背景图片，默认为none */
+            background-image: url('./img/wall.png');
+        }
+        
+        .repeat {
+            width: 100%;
+            height: 600px;
+            /* 设置背景图片同时可以设置背景颜色，背景图片在上，最后一个是透明度*/
+            background-color: rgba(167, 216, 218, 0.3);
+            background-image: url('./img/littlewall.png');
+            /* 背景平铺设定 */
+            background-repeat: no-repeat;
+        }
+        
+        .position {
+            width: 100%;
+            height: 600px;
+            background-color: rgb(235, 240, 176);
+            background-image: url('./img/littlewall.png');
+            background-repeat: no-repeat;
+            /* 设置背景图片的位置 */
+            background-position: center;
+        }
+        
+        h3 {
+            width: 120px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 40px;
+            background-image: url('./img/wzry.png');
+            background-repeat: no-repeat;
+            background-position: 0px center;
+            text-indent: 1.8em;
+        }
+        
+        .big {
+            width: 100%;
+            height: 1000px;
+            background-image: url(img/big.jpg);
+            /* 大图直接用center，核心内容才会居中 */
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 设置图像是否滚动 */
+            background-attachment: fixed;
+        }
+        
+        .combine {
+            width: 100%;
+            height: 1000px;
+            /* 合并属性 */
+            background: black url(img/wall.png) no-repeat fixed center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgc">
+
+    </div>
+
+    <div class="bgi">
+
+    </div>
+
+    <div class="repeat">
+
+    </div>
+
+    <div class="position">
+
+    </div>
+
+    <h3>成长守护平台</h3>
+
+    <div class="big">
+
+    </div>
+
+    <div class="combine">
+
+    </div>
+</body>
+
+</html>

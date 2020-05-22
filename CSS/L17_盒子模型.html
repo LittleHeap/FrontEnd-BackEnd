@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 1.边框，边框向外延伸尺寸  */
+            width: 300px;
+            height: 200px;
+            /* 边框的宽度 */
+            border-width: 2px;
+            /* 边框的样式 */
+            border-style: solid;
+            /* 边框的颜色 */
+            border-color: lightskyblue;
+            /* 复合写法 */
+            border: 2px dashed red;
+            /* 设置边框的某一条边 */
+            border-top: lightseagreen dotted 5px;
+            /* 合并相邻的边框 */
+            border-collapse: collapse;
+            /* 2.内边距，盒子套盒子，会顶
+                连写规范：1-上下左右，2-上下/左右，3-上/左右/下，4-上/右/下/左*/
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+        
+        .one {
+            border: 1px black dotted;
+            /* 3.外边距 */
+            margin-bottom: 10px;
+        }
+        
+        .two {
+            border: 1px black dotted;
+            margin-top: 10px;
+        }
+        
+        .header {
+            width: 900px;
+            height: 300px;
+            /* 块级元素水平居中：必须有宽度，margin左右设置auto */
+            margin: 0px auto;
+            background-color: blanchedalmond;
+            /* 块级元素让行内元素水平居中对齐 */
+            text-align: center;
+            /* 块级元素让行内元素垂直居中对齐 */
+            line-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>这是一段div内容的测试文本</div>
+
+    <div class="one">1</div>
+    <div class="two">2</div>
+
+    <div class="header">
+        <span>span-行内元素文字</span>
+    </div>
+
+
+</body>
+
+</html>

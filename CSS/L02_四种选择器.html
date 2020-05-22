@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*标签选择器：把某一类标签全部选择出来，不能差异化设置*/
+        
+        p {
+            color: chartreuse;
+        }
+        
+        div {
+            color: fuchsia;
+        }
+        /*类选择器*/
+        
+        .red {
+            color: red;
+        }
+        /*id选择器，只能调用一次，别人切勿使用*/
+        
+        #pink {
+            color: slateblue;
+        }
+        /*通配符选择器*/
+        
+        * {
+            font-size: larger;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>标签选择器</h4>
+    <p>男生</p>
+    <p>男生</p>
+    <p>男生</p>
+    <div>女生</div>
+    <div>女生</div>
+    <div>女生</div>
+
+    <h4>类选择器</h4>
+    <ul>
+        <li class="red">春天</li>
+        <li>夏天</li>
+        <li class="red">秋天</li>
+        <li>冬天</li>
+    </ul>
+    <div class="red">我也想变成红色</div>
+
+    <h4>id选择器</h4>
+    <div id="pink">这是一个id选择器修饰的结果</div>
+
+    <h4>通配符选择器</h4>
+    <p>通配符选择器不需要主动调用，自动调用</p>
+</body>
+
+</html>

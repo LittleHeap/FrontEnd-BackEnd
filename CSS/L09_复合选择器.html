@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器 */
+        
+        ol li {
+            color: aquamarine;
+        }
+        
+        ol li a {
+            color: greenyellow;
+        }
+        
+        .nav li {
+            color: hotpink;
+        }
+        /* 子元素选择器 */
+        
+        .demo>a {
+            color: lightcoral;
+        }
+        /* 并集选择器，元素用逗号分隔*/
+        
+        div,
+        p {
+            color: chocolate;
+        }
+        
+        span,
+        .pig li {
+            color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li><a href="#">这是一个a标签</a></li>
+    </ol>
+    <ul class="bar">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+    <ul class="nav">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+
+    <div class="demo">
+        <a href="#">我是儿子</a>
+        <p>
+            <a href="#">我是孙子</a>
+        </p>
+        <a href="#">我也是儿子</a>
+    </div>
+
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+        <li>猪妈妈</li>
+    </ul>
+</body>
+
+</html>

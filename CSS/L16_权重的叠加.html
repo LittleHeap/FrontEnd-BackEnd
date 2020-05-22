@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 符合选择器权重会叠加，这里是两个元素选择器的权重之和 */
+        
+        ul li {
+            /* 显示绿色，这里优先级高, 为2*/
+            color: green;
+        }
+        
+        li {
+            /* 这里优先级低，为1 */
+            color: red;
+        }
+        /* 可以写一个更高的类选择器 + 标签选择器 */
+        
+        .nav li {
+            /* 此处优先级更高，为11 */
+            color: lightseagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</body>
+
+</html>

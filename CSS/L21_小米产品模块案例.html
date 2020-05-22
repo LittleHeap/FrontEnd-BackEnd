@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: coral;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .box {
+            width: 610px;
+            height: 520px;
+            background-color: white;
+            margin: 100px auto;
+        }
+        
+        .box img {
+            /* 图片宽度和父亲一样宽，这样会压缩图片正好放进去 */
+            width: 100%;
+        }
+        
+        .review {
+            height: 60px;
+            font-size: 15px;
+            /* 因为review没有width属性，不会撑开 */
+            padding: 0px 20px;
+            margin-top: 12px;
+        }
+        
+        .appraise {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+        
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+        
+        .info {
+            font-size: 16px;
+            margin-top: 15px;
+            padding: 0 20px;
+        }
+        
+        .info span {
+            color: orange;
+        }
+        
+        .info em {
+            font-style: normal;
+            color: #ebe4e0;
+            margin: 0 6px 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="http://www.mi.com"><img src="img/tv1.jpg" alt=""></a>
+        <p class="review">快递很快，安装电视的师傅特别专业，下次还买，整体来说还是非常给力的，我会推荐给亲戚朋友，非常喜欢小米的产品</p>
+        <div class="appraise">来自于182828337的评价</div>
+        <div class="info">
+            <h4><a href="#">小米电视4A 32寸</a></h4>
+            <em>|</em>
+            <span>3999元</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

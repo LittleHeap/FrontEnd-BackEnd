@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.层叠性：多次定义后来者居上 */
+        
+        div {
+            color: white;
+            /* 但是不冲突的特性不会出现层叠问题 */
+            font-size: 40px;
+        }
+        
+        div {
+            color: pink;
+        }
+        /* 2.继承性，一般文字特性，p标签在div中，就会继承div设置的字体属性*/
+        
+        body {
+            /* 同时父元素如果设定1.5，就是让子元素行高为1.5倍子元素文字大小 */
+            font: 12px/1.5;
+        }
+        /* 3.优先级 */
+        /* 继承 < 元素选择器 < 类选择器 < ID选择器 < 行内选择器 < !important */
+    </style>
+</head>
+
+<body>
+    <div>测试案例
+        <!-- p标签会继承div属性 -->
+        <p>p标签在此却有div的特性</p>
+    </div>
+    <div class="test">TEST</div>
+</body>
+
+</html>

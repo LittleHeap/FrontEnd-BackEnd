@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            /* 多个块级元素如果是竖着排列用标准流，如果横向就用浮动 */
+            float: left;
+        }
+        
+        .right {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(192, 255, 245);
+            /* 右浮动到右边 */
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div>任何元素都可以浮动，浮动后具有行内块元素特性，行内元素可以设置宽高了</div>
+    <div>块级元素没有设置宽度会和父亲一样宽，但是加了浮动后，宽度不设置就由内容多少来确定</div>
+    <div>浮动的盒子之间是没有间距的</div>
+    <div class="right"></div>
+</body>
+
+</html>
