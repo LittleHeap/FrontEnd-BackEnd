@@ -47,6 +47,20 @@
             background-color: aqua;
             overflow: hidden;
         }
+        
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+        
+        .clearfix:after {
+            clear: both;
+        }
+        
+        .clearfix {
+            *zoom: 1;
+        }
     </style>
 </head>
 
@@ -61,6 +75,13 @@
     <div class="footer"></div>
 
     <h3>2.overflow法</h3>
+    <div class="overflow">
+        <div class="a"></div>
+        <div class="b"></div>
+    </div>
+    <div class="footer"></div>
+
+    <h3>3.双伪元素法</h3>
     <div class="overflow">
         <div class="a"></div>
         <div class="b"></div>

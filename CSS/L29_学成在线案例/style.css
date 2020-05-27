@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.w {
+    /* 版心 */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 42px;
+    background-color: pink;
+    margin: 30px auto;
+}
+
+.logo {
+    /* 同一行一浮动全浮动 */
+    float: left;
+    width: 198px;
+    height: 42px;
+    background-color: powderblue;
+}
+
+.nav {
+    float: left;
+    margin-left: 60px;
+}
