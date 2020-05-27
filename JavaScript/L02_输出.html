@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>1.使用innerHTML输出</h3>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("demo").innerHTML = 'content';
+    </script>
+
+    <h3>2.使用document.write输出</h3>
+    <p id="demo"></p>
+    <script>
+        document.write('content');
+    </script>
+    <button onclick="document.write('content')">试一试</button>
+
+    <h3>3.使用window.alert()</h3>
+    <button onclick="window.alert('content');">试一试</button>
+
+    <h3>4.使用console.log()</h3>
+    <button onclick="console.log('content')">试一试</button>
+
+</body>
+
+</html>

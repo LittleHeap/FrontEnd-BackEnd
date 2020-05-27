@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo1"></p>
+    <script>
+        var cars = [
+            "Audi",
+            "BMW",
+            "porsche"
+        ];
+        document.getElementById("demo1").innerHTML = cars;
+    </script>
+
+    <p>遍历数组的最佳方法是使用标准的 for 循环：</p>
+    <p id="demo2"></p>
+    <script>
+        var fruits, text, fLen, i;
+        fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fLen = fruits.length;
+        text = "<ul>";
+        for (i = 0; i < fLen; i++) {
+            text += "<li>" + fruits[i] + "</li>";
+        }
+        text += "</ul>";
+        document.getElementById("demo2").innerHTML = text;
+    </script>
+
+    <p>Array.forEach() 为每个数组元素调用函数。</p>
+    <p id="demo3"></p>
+    <script>
+        var fruits, text;
+        fruits = ["Banana", "Orange", "Apple", "Mango"];
+        text = "<ul>";
+        fruits.forEach(myFunction);
+        text += "</ul>";
+        document.getElementById("demo3").innerHTML = text;
+
+        function myFunction(value) {
+            text += "<li>" + value + "</li>";
+        }
+    </script>
+
+    <p>push 方法向数组追加新元素。</p>
+    <button onclick="myFunction()">试一试</button>
+    <p id="demo4"></p>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = fruits;
+
+        function myFunction() {
+            fruits.push("Lemon");
+            document.getElementById("demo4").innerHTML = fruits;
+        }
+    </script>
+
+    <p>isArray 在数组上使用时返回 true：</p>
+    <p id="demo5"></p>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo5").innerHTML = Array.isArray(fruits);
+    </script>
+
+    <p>当在数组上使用时，instanceof 运算符返回true：</p>
+    <p id="demo6"></p>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo6").innerHTML = fruits instanceof Array;
+    </script>
+</body>
+
+</html>

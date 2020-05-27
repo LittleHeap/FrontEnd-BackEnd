@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>length 属性返回字符串的长度：</p>
+    <p id="demo1"></p>
+    <script>
+        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo1").innerHTML = txt.length;
+    </script>
+
+    <p>indexOf() 方法返回指定文本首次出现的位置：</p>
+    <p id="demo2"></p>
+    <script>
+        var str = "The full name of China is the People's Republic of China.";
+        var pos = str.indexOf("China");
+        document.getElementById("demo2").innerHTML = pos;
+    </script>
+
+    <p>lastIndexOf() 返回指定文本最后出现的位置：</p>
+    <p id="demo3"></p>
+    <script>
+        var str = "The full name of China is the People's Republic of China.";
+        var pos = str.lastIndexOf("China");
+        document.getElementById("demo3").innerHTML = pos;
+    </script>
+
+    <p>如果未找到文本，则 indexOf() 和 lastIndexOf() 都返回 -1：</p>
+    <p id="demo4"></p>
+    <script>
+        var str = "The full name of China is the People's Republic of China.";
+        var pos = str.indexOf("USA");
+        document.getElementById("demo4").innerHTML = pos;
+    </script>
+
+    <p>search() 方法返回字符串中指定文本第一次出现的位置：</p>
+    <p id="demo5"></p>
+    <script>
+        var str = "The full name of China is the People's Republic of China.";
+        var pos = str.search("China");
+        document.getElementById("demo5").innerHTML = pos;
+    </script>
+
+    <p>slice() 提取字符串的某个部分，并在新字符串中返回被提取的部分。</p>
+    <p id="demo6"></p>
+    <script>
+        var str = "Apple, Banana, Mango";
+        var res = str.slice(7, 13);
+        document.getElementById("demo6").innerHTML = res;
+    </script>
+
+    <p>substring() 提取字符串的某个部分，并在新字符串中返回被提取的部分。</p>
+    <p id="demo7"></p>
+    <script>
+        var str = "Apple, Banana, Mango";
+        var res = str.substring(7, 13);
+        document.getElementById("demo7").innerHTML = res;
+    </script>
+
+    <p>请把下面的段落中的“Microsoft”替换为“W3School”：</p>
+    <button onclick="myFunction()">试一试</button>
+    <p id="demo8">请访问 Microsoft！</p>
+    <script>
+        function myFunction() {
+            var str = document.getElementById("demo8").innerHTML;
+            var txt = str.replace("Microsoft", "W3School");
+            document.getElementById("demo8").innerHTML = txt;
+        }
+    </script>
+
+    <p>把字符串转换为大写：</p>
+    <button onclick="myFunction()">试一试</button>
+    <p id="demo9">Hello World!</p>
+    <script>
+        function myFunction() {
+            var text = document.getElementById("demo9").innerHTML;
+            document.getElementById("demo9").innerHTML = text.toUpperCase();
+        }
+    </script>
+</body>
+
+</html>

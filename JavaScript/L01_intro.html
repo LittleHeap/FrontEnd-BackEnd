@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFun() {
+            document.getElementById('demo').innerHTML = 'Change!';
+        }
+    </script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h3>简单显示案例</h3>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">点击这里显示时间</button>
+    <!-- 内容单引号双引号都可以 -->
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JS'">点击这里显示文字</button>
+    <button type="button" onclick="myFun()">点击这里触发变化</button>
+    <button type="button" onclick="outFun()">点击这里显示外部信息</button>
+    <p id="demo"></p>
+</body>
+
+</html>

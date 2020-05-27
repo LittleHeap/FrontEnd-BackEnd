@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>toString() 方法以基数 2 到 36 输出字符串：</p>
+    <p id="demo1"></p>
+    <script>
+        var myNumber = 32;
+        document.getElementById("demo1").innerHTML =
+            "32 = " + "<br>" +
+            " Decimal " + myNumber.toString(10) + "<br>" +
+            " Hexadecimal " + myNumber.toString(16) + "<br>" +
+            " Octal " + myNumber.toString(8) + "<br>" +
+            " Binary " + myNumber.toString(2);
+    </script>
+
+    <p>toExponential() 方法返回一个字符串，包含进行舍入的数字并使用指数表示法。</p>
+    <p>可选参数定义小数点后面的位数。</p>
+    <p id="demo2"></p>
+    <script>
+        var x = 9.656;
+        document.getElementById("demo2").innerHTML =
+            x.toExponential() + "<br>" +
+            x.toExponential(2) + "<br>" +
+            x.toExponential(4) + "<br>" +
+            x.toExponential(6);
+    </script>
+
+    <p>valueOf() 把数字返回为数字：</p>
+    <p id="demo3"></p>
+    <script>
+        var x = 123;
+        document.getElementById("demo3").innerHTML =
+            x.valueOf() + "<br>" +
+            (123).valueOf() + "<br>" +
+            (100 + 23).valueOf();
+    </script>
+
+    <p>Number() 方法把变量转换为数字：</p>
+    <p id="demo4"></p>
+    <script>
+        document.getElementById("demo4").innerHTML =
+            Number(true) + "<br>" +
+            Number(false) + "<br>" +
+            Number("10") + "<br>" +
+            Number("  10") + "<br>" +
+            Number("10  ") + "<br>" +
+            Number(" 10  ") + "<br>" +
+            Number("10.33") + "<br>" +
+            Number("10,33") + "<br>" +
+            Number("10 33") + "<br>" +
+            Number("John");
+    </script>
+
+    <p>全局 JavaScript 函数 parseInt() 把字符串转换为数字：</p>
+    <p id="demo5"></p>
+    <script>
+        document.getElementById("demo5").innerHTML =
+            parseInt("10") + "<br>" +
+            parseInt("10.33") + "<br>" +
+            parseInt("10 6") + "<br>" +
+            parseInt("10 years") + "<br>" +
+            parseInt("years 10");
+    </script>
+
+</body>
+
+</html>
