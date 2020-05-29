@@ -1,23 +1,17 @@
 //导入文件模块
-var fs = require('fs')
-
-//读写文件有同步&异步之分
+var fs = require('fs');
 
 //(1)同步的方式
-var f = fs.openSync('./hello.txt', 'r')
-
-//得到文件描述符的整数
-console.log(f) //20
-
-//读取文件内容
 var content = fs.readFileSync('./hello.txt', { flag: 'r' });
+console.log(content);
+//没有encoding输出缓冲区内容：<Buffer 68 65 6c 6c 6f>
+console.log(content.toString());
+//hello
 
-console.log(content) //没有encoding输出缓冲区内容
-console.log(content.toString()) //hello1
-
+//直接把编码格式写入参数
 var content = fs.readFileSync('./hello.txt', { flag: 'r', encoding: 'utf-8' });
-
-console.log(content); //hello1
+console.log(content);
+//hello
 
 console.log('--------');
 
@@ -27,13 +21,11 @@ fs.readFile('./hello.txt', { flag: 'r', encoding: 'utf-8' }, function(err, data)
     if (err) {
         console.log(err);
     } else {
-        console.log(data); //hello1
+        console.log(data); //hello
     }
 })
 
-console.log('异步方式验证字符串');
-
-//异步方式防止循环回调嵌套，使用promise封装
+//使用promise封装
 function fsRead(path) {
     return new Promise(function(resolve, reject) {
         fs.readFile(path, { flag: 'r', encoding: 'utf-8' }, function(err, data) {
@@ -48,21 +40,20 @@ function fsRead(path) {
 
 var pro = fsRead('./hello.txt');
 
-pro.then(function A(data) {
+//成功resolve时，then里第一个函数会被调用，失败reject时，then里第二个函数会被调用
+pro.then(function(data) {
     console.log('Promise resolve then 触发:');
-    console.log(data); //hello1
-    console.log('--------')
-}, function B(err) {
+    console.log(data); //hello
+}, function(err) {
     console.log('Promise reject then 触发:');
     console.log(err);
 })
 
 //连续异步读取
 async function ReadList() {
-    var file1 = await fsRead('hello.txt');
+    // 如果不用then，promise成功会返回resolve接受到的数据
+    var file1 = await fsRead('hello1.txt');
     var file2 = await fsRead(file1 + '.txt');
-    var finalcontent = await fsRead(file2 + '.txt');
-    console.log(finalcontent);
+    console.log(file2); //hello3
 }
-
 ReadList();

@@ -13,14 +13,14 @@ function fsRead(path) {
 }
 
 function fsWrite(path, content) {
-    return new Promise(function(success, fail) {
+    return new Promise(function(resolve, reject) {
         fs.writeFile(path, content, { flag: 'a', encoding: 'utf-8' }, function(err) {
             if (err) {
-                console.log('写入内容失败');
-                fail(err);
+                console.log('写入失败');
+                reject(err);
             } else {
-                console.log('写入内容成功');
-                success(err);
+                console.log('写入成功');
+                resolve(err);
             }
         })
     })
