@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #pane {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- v-if : 不显示时讲内容直接清除，直接不渲染，只渲染一次时推荐 -->
+    <div id="app1">
+        <h1>用户名：{{username}}</h1>
+        <h3 v-if='isVip'>用户类型：VIP</h3>
+        <!-- v-if 和 v-else中间不能有其他内容 -->
+        <h3 v-else>用户类型：普通类型</h3>
+        <hr>
+        <h3 v-if='age >= 18'>用户允许登陆时间：24h</h3>
+        <h3 v-else-if='age >= 12'>用户允许登陆时间：18h</h3>
+        <h3 v-else>用户允许登陆时间：6h</h3>
+        <hr>
+    </div>
+    <!-- v-show : 不显示时是将display设置为None，但是会渲染在DOM上，反复需要渲染时推荐 -->
+    <div id="app2">
+        <div v-show='isShow' id="pane">
+            hello vue
+        </div>
+        <button @click='showPane'>切换显示内容</button>
+    </div>
+
+    <script>
+        let app1 = new Vue({
+            el: '#app1',
+            data: {
+                username: 'Tom',
+                isVip: false,
+                age: 12
+            }
+        });
+        let app2 = new Vue({
+            el: '#app2',
+            data: {
+                isShow: true
+            },
+            methods: {
+                showPane: function() {
+                    app2.isShow = !app2.isShow;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
