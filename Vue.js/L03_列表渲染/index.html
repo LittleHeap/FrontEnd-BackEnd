@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>明星列表</h3>
+        <ul>
+            <li v-for='item in stars'>{{item}}</li>
+        </ul>
+        <h3>学生列表</h3>
+        <ul>
+            <li v-for='item in students'>
+                <h4>{{item.name}}</h4>
+                <h4>{{item.age}}</h4>
+                <h4>{{item.school}}</h4>
+            </li>
+        </ul>
+        <h3>学生列表（带索引）</h3>
+        <ul>
+            <li v-for='item, index in students'>
+                <h4>{{index}}</h4>
+                <h4>{{item.name}}</h4>
+                <h4>{{item.age}}</h4>
+                <h4>{{item.school}}</h4>
+            </li>
+        </ul>
+        <h3>循环对象</h3>
+        <ul>
+            <li v-for='item, key in students[0]'>
+                {{key}} : {{item}}
+            </li>
+        </ul>
+        <h3>条件循环渲染（年龄偶数）</h3>
+        <ol>
+            <li v-for='item, index in students' v-if='item.age % 2 == 0' :key='index'>
+                {{item}}
+            </li>
+        </ol>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                stars: ['蔡徐坤', '范冰冰', '苏有朋', '李晨'],
+                students: [{
+                    name: 'Tome',
+                    age: 16,
+                    school: 'THU'
+                }, {
+                    name: 'Mark',
+                    age: 12,
+                    school: 'CSU'
+                }, {
+                    name: 'Pop',
+                    age: 11,
+                    school: 'ZJU'
+                }, {
+                    name: 'Gam',
+                    age: 14,
+                    school: 'HU'
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>

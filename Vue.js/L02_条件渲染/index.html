@@ -35,6 +35,18 @@
         </div>
         <button @click='showPane'>切换显示内容</button>
     </div>
+    <!-- 实践 -->
+    <div id="app3">
+        <h3 v-if='tab == 1'>首页</h3>
+        <h3 v-else-if='tab == 2'>新闻</h3>
+        <h3 v-else='tab == 3'>个人中心</h3>
+        <h3 v-show='tab == 1'>首页</h3>
+        <h3 v-show='tab == 2'>新闻</h3>
+        <h3 v-show='tab == 3'>个人中心</h3>
+        <button @click='tabChange' data-id='1'>首页</button>
+        <button @click='tabChange' data-id='2'>新闻</button>
+        <button @click='tabChange' data-id='3'>个人中心</button>
+    </div>
 
     <script>
         let app1 = new Vue({
@@ -53,6 +65,18 @@
             methods: {
                 showPane: function() {
                     app2.isShow = !app2.isShow;
+                }
+            }
+        });
+        let app3 = new Vue({
+            el: '#app3',
+            data: {
+                tab: 1
+            },
+            methods: {
+                tabChange: function(e) {
+                    let tabId = e.target.dataset.id;
+                    this.tab = tabId;
                 }
             }
         });
