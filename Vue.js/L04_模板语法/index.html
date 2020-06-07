@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #login {
+            background-color: aquamarine;
+        }
+        
+        #register {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-once 一次性插入，不再修改 -->
+        <h1>v-once</h1>
+        <h3>{{msg}}</h3>
+        <h3 v-once>{{msg}}</h3>
+        <hr>
+        <!-- v-html -->
+        <h1>插入HTML内容</h1>
+        <h3 v-html='htmlText'></h3>
+        <hr>
+        <!-- v-bind -->
+        <h1>绑定动态属性，绑定后idname是一个变量而不是字符串</h1>
+        <div v-bind:id="idname">
+            <h3>登陆</h3>
+        </div>
+        <hr>
+        <!-- 表达式 -->
+        <h1>模板简单表达式</h1>
+        <h3>{{fisrtName + lastName}}</h3>
+        <h3>{{isVip ? 'VIP用户' : '普通用户'}}</h3>
+        <hr>
+        <!-- v-on -->
+        <h3>事件绑定</h3>
+        <button v-on:click='changeBg'>改变背景</button>
+        <hr>
+        <!-- 计算属性 -->
+        <h1>计算属性</h1>
+        <h3>原始写法：{{fisrtName + ' ' + lastName}}</h3>
+        <h3>计算属性写法：{{fullName}}</h3>
+        <h3 v-for='ele in odd'>
+            {{ele}}
+        </h3>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'message',
+                htmlText: '<span>hello</span>',
+                idname: 'register',
+                fisrtName: 'Shaoyong',
+                lastName: 'Wang',
+                isVip: true,
+                elements: [1, 2, 3, 4, 5, 6, 7, 8]
+            },
+            methods: {
+                changeBg: function() {
+                    document.body.style.background = 'skyblue';
+                }
+            },
+            computed: {
+                fullName: function() {
+                    // 计算属性中结果会被缓存，变量内容不改变，就不会重新计算
+                    return this.fisrtName + ' ' + this.lastName;
+                },
+                odd: function() {
+                    return this.elements.filter((item) => {
+                        return item % 2 == 1
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
