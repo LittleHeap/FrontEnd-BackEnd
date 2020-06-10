@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .page {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            margin-top: 20px;
+        }
+        
+        .active {
+            background-color: aqua;
+        }
+        
+        .big {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>class绑定</h1>
+        <!-- 通过对象直接传入 -->
+        <div class="page" v-bind:class="{active:isTrue}"></div>
+        <!-- 通过对象变量方式传入 -->
+        <div class="page" v-bind:class='classObj'></div>
+        <!-- 通过数组方式传入 -->
+        <div class='page' v-bind:class='classArr'></div>
+        <!-- 通过字符串传入 -->
+        <div v-bind:class='classStr'></div>
+        <!-- 通过数组对象混合传入 -->
+        <div v-bind:class='classArrObj'></div>
+        <hr>
+        <h1>style绑定</h1>
+        <!-- 变量拼接对象传入 -->
+        <div :class='classArrObj' v-bind:style='{border: borderWidth + "px solid red"}'></div>
+        <!-- 对象传入 -->
+        <div v-bind:style='styleObj'></div>
+        <!-- 数组传入 -->
+        <div v-bind:style='styleArr'></div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isTrue: true,
+                classObj: {
+                    active: true,
+                    big: true,
+                    // 有横杠一定加引号
+                    'col-lg-6': true
+                },
+                classArr: ['active', 'big'],
+                classStr: 'page active big',
+                classArrObj: ['page', {
+                    active: true
+                }],
+                borderWidth: 10,
+                styleObj: {
+                    width: '400px',
+                    height: '300px',
+                    'background-color': 'pink',
+                    'margin-top': '20px'
+                },
+                styleArr: [{
+                    width: '400px',
+                    height: '300px',
+                    'background-color': 'pink',
+                    'margin-top': '20px'
+                }, {
+                    border: '5px solid yellow'
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>

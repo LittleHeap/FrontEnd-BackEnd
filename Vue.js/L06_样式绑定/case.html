@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page {
+            width: 100vw;
+            height: 100vh;
+            background-color: slategrey;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        .menu {
+            width: 30vw;
+            height: 100vh;
+            background-color: tan;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transform: translateX(100vw);
+            transition: transform 0.5s;
+        }
+        
+        .active {
+            transform: translateX(70vw);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page">
+            首页
+            <button v-on:click='tabMenu' type="button">切换侧边栏</button>
+        </div>
+        <div class="menu" v-bind:class='{active:isShow}'>
+            菜单栏
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                isShow: false
+            },
+            methods: {
+                tabMenu: function() {
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

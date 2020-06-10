@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 直接使用表达式 -->
+        <h1>直接使用表达式</h1>
+        <h2>{{count}}</h2>
+        <button @click='count += 1' type="button">Click </button>
+        <hr>
+        <!-- 使用事件对象 -->
+        <h1>使用事件对象</h1>
+        <h2>{{count}}</h2>
+        <button @click='clickEvent' type="button">Click </button>
+        <!-- 事件传参 -->
+        <h1>事件传参</h1>
+        <ul>
+            <li v-for='star, index in stars' @click='clickStar(index, star, $event)'>{{index}} : {{star}}</li>
+        </ul>
+        <hr>
+        <!-- 事件修饰符 -->
+        <h1>事件修饰符</h1>
+        <div @click='clickParent' class="btnParent">
+            <!-- 此时点击按钮button就相当于于点了一系列父级组件 -->
+            <button @click.stop='clickChild' type="button">child</button>
+            <!-- 添加stop修饰之后不会冒泡传播 -->
+        </div>
+        <form action="" method="post">
+            <input type="text" name="username" v-model='city'>
+            <input @click.prevent='weather' @keydown.enter="weather" type="submit" value='提交'>
+            <!-- prevent阻止默认事件操作 -->
+        </form>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                stars: ['a', 'b', 'c', 'd'],
+                city: '广州'
+            },
+            methods: {
+                clickEvent: function(e) {
+                    console.log(e);
+                    this.count += 1;
+                },
+                clickStar: function(index, star, e) {
+                    alert(index + ':' + star);
+                },
+                clickParent: function() {
+                    alert('parent');
+                },
+                clickChild: function() {
+                    alert('child');
+                },
+                weather: function() {
+                    alert(this.city);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

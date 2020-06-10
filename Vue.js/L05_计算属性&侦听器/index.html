@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #login {
+            background-color: aquamarine;
+        }
+        
+        #register {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 计算属性 -->
+        <h1>计算属性</h1>
+        <h3>原始写法：{{fisrtName + ' ' + lastName}}</h3>
+        <h3>计算属性写法：{{fullName}}</h3>
+        <h3 v-for='ele in odd'>
+            {{ele}}
+        </h3>
+        <hr>
+        <!-- set & get -->
+        <h1>set & get</h1>
+        <h3>msg : {{msgFunc}}</h3>
+        <hr>
+        <!-- 侦听器 -->
+        <h1>侦听器</h1>
+        <h3>{{color}}</h3>
+        <ul>
+            <li v-for='item in arr'>{{item}}</li>
+        </ul>
+
+
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                fisrtName: 'Shaoyong',
+                lastName: 'Wang',
+                elements: [1, 2, 3, 4, 5, 6, 7, 8],
+                msg: 'qwer',
+                color: "blue",
+                arr: [1, 2, 3, 4, 5]
+            },
+            computed: {
+                fullName: function() {
+                    // 计算属性中结果会被缓存，变量内容不改变，就不会重新计算
+                    return this.fisrtName + ' ' + this.lastName;
+                },
+                odd: function() {
+                    return this.elements.filter((item) => {
+                        return item % 2 == 1
+                    })
+                },
+                msgFunc: {
+                    get: function() {
+                        return this.msg;
+                    },
+                    set: function(value) {
+                        this.msg = value;
+                    }
+                }
+            },
+            watch: {
+                color: function(val) {
+                    console.log('触发监听事件：color');
+                    console.log(val);
+                },
+                arr: function(val) {
+                    console.log('触发监听事件：arr');
+                    console.log(val);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
