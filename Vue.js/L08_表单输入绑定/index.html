@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>单行文本输入框</h1>
+        <input type="text" name="username" v-model="username" value="">
+        <p>{{username}}</p>
+        <hr>
+        <h1>多行文本输入框</h1>
+        <textarea name="username" id="" cols="30" rows="10" v-model="username"></textarea>
+        <hr>
+
+        <h1>复选框</h1>
+        <span v-for='item in fruits'>
+            <input type="checkbox" name="fruit" v-model='checkFruits' :value="item">
+            <span>{{item}}</span>
+        </span>
+        <h2>{{checkFruits}}</h2>
+        <hr>
+
+        <h1>单选框</h1>
+        <span v-for='item in fruits'>
+            <input type="radio" name="fruit" v-model='radioFruit' :value="item">
+            <span>{{item}}</span>
+        </span>
+        <h2>{{radioFruit}}</h2>
+        <hr>
+
+        <h1>单选选项框</h1>
+        <select name="" id="" v-model='selectCity'>
+            <option v-for='item in citys' :value="item">{{item}}</option>
+        </select>
+        <h2>{{selectCity}}</h2>
+        <hr>
+
+        <h1>多选选项框</h1>
+        <select name="" id="" v-model='moreCity' multiple='multiple'>
+            <option v-for='item in citys' :value="item">{{item}}</option>
+        </select>
+        <h2>{{moreCity}}</h2>
+        <hr>
+
+        <h1>修饰词：将字符串变为数字获取</h1>
+        <input type="text" name='age' v-model.number='age'>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                username: 'Tom',
+                fruits: ['apple', 'banana', 'peach'],
+                checkFruits: [],
+                radioFruit: '',
+                citys: ['Beijing', 'Shanghai', 'Shenzhen'],
+                selectCity: '',
+                moreCity: [],
+                age: 16
+            },
+            watch: {
+                age: function() {
+                    console.log(this.age);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
