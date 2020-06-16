@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- 依次是：
+            父元素传给子元素数据
+            父元素传给子元素索引
+            子元素传给父元素数据
+            父元素传给子元素方法 -->
+            <product-com v-for='item,index in proList' :product='item' :index='index' @choose-school='changeEvt' :action='changeEvt'>
+            </product-com>
+        </ul>
+        <h2>您的选择是：{{choice}}</h2>
+    </div>
+
+    <script>
+        // 产品组件
+        Vue.component('product-com', {
+            // 【父传子】props承接父元素传值
+            props: ['product', 'index', 'action'],
+            template: `<li>
+            <h1>{{index + 1}}:</h1>
+            <h2>产品名称：{{ product.title }}</h2>
+            <h2>产品价格：{{ product.price }}</h2>
+            <h3>产品描述：{{ product.brief }}</h3>
+            <button @click='chooseEvt(product.title)'>选择</button>
+            <button @click='$parent.choice = product.title'>选择</button>
+            <button @click='$root.choice = product.title'>选择</button>
+            </li >`,
+            methods: {
+                chooseEvt: function(data) {
+                    console.log(data);
+                    // 【子传父】想将子元素传递给父元素，需要自定义触发事件
+                    // this.$emit('choose-school', data);
+                    // this.action(data);
+
+                    // 通过$parent找到父组件
+                    // this.$parent.changeEvt(data);
+                    this.$parent.choice = data;
+                }
+            }
+        });
+        // 根组件
+        let app = new Vue({
+            el: '#app',
+            data: {
+                proList: [{
+                    title: 'P1',
+                    price: '11',
+                    brief: 'D1'
+                }, {
+                    title: 'P2',
+                    price: '12',
+                    brief: 'D2'
+                }, {
+                    title: 'P3',
+                    price: '13',
+                    brief: 'D3'
+                }],
+                choice: ''
+            },
+            methods: {
+                changeEvt: function(data) {
+                    this.choice = data;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

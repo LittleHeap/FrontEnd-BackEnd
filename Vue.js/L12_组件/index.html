@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <hello-com v-if='isShow'></hello-com>
+    </div>
+
+    <script>
+        let helloCom = Vue.component('hello-com', {
+            template: '<div><h1>{{temp}}</h1><button @click="change">change</button></div>',
+            data: function() {
+                return {
+                    temp: 'hello component'
+                }
+            },
+            methods: {
+                change: function() {
+                    this.temp = 'new'
+                }
+            }
+        })
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            },
+            components: {
+                // 组件注册
+                'hello-com': helloCom,
+            },
+            beforeDestroy() {
+                // 组件销毁之前
+                console.log('beforeDestroy()');
+            },
+            destroyed() {
+                // 组件销毁之后
+                console.log('destroyed()');
+            }
+        });
+    </script>
+</body>
+
+</html>

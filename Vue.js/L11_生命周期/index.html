@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2 :class='className'>{{msg}}</h2>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello vue',
+                className: 'redBg'
+            },
+            beforeCreate() {
+                console.log('beforeCreate()');
+                console.log(this);
+                // 数据和方法是没有绑定的
+                console.log(this.msg);
+                console.log(this.clickEvent);
+            },
+            created() {
+                console.log('created()');
+                console.log(this);
+                // 数据和方法绑定完毕
+                console.log(this.msg);
+                console.log(this.clickEvent);
+            },
+            beforeMount() {
+                // 渲染之前
+                console.log('beforeMount()');
+                // 此时className是获取不到的
+                let dom = document.querySelector('.redBg');
+                console.log(dom);
+            },
+            mounted() {
+                // 渲染之后
+                console.log('mounted()');
+                // 此时className可以获取到
+                let dom = document.querySelector('.redBg');
+                console.log(dom);
+            },
+            beforeUpdate() {
+                // 更改的数据在未渲染到dom之前
+                console.log('beforeUpdate()');
+            },
+            updated() {
+                // 更改的数据在渲染到dom之后
+                console.log('updated()');
+            },
+            beforeDestroy() {
+                // 组件销毁之前
+                console.log('beforeDestroy()');
+            },
+            destroyed() {
+                // 组件销毁之后
+                console.log('destroyed()');
+            },
+            methods: {
+                clickEvent: function() {
+                    console.log('clickEvt');
+                }
+            }
+        });
+
+        Vue.component('hello-com', {
+            template: '<h1>{{temp}}</h1>',
+            data: function() {
+                return {
+                    temp: 'hello component'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -14,7 +14,50 @@ app.on('/domestic', (req, res) => {
     } else {
         res.end('Domestic Other Page');
     }
+})
 
+app.on('/movies', (req, res) => {
+    res.setHeader('content-type', 'text/html;charset=utf-8');
+    let movies = [{
+        name: '1.小丑',
+        brief: 'XXXXXXX',
+        author: 'AAA',
+        stars: [1, 2, 3],
+        info: [{
+            name: '天天',
+            gender: 'male'
+        }, {
+            name: '弟弟',
+            gender: 'female'
+        }]
+    }, {
+        name: '2.少年的你',
+        brief: 'XXXXXXX',
+        author: 'AAA',
+        stars: [4, 5, 6],
+        info: [{
+            name: '天天',
+            gender: 'male'
+        }, {
+            name: '弟弟',
+            gender: 'female'
+        }]
+    }, {
+        name: '3.天路',
+        brief: 'XXXXXXX',
+        author: 'AAA',
+        stars: [7, 8, 9],
+        info: [{
+            name: '天天',
+            gender: 'male'
+        }, {
+            name: '弟弟',
+            gender: 'female'
+        }]
+    }]
+    let index = req.pathInfo.base;
+    // res.end(movies[index - 1].name);
+    res.render('./templates/page.html', movies[index - 1]);
 })
 
 app.run(80, () => {
