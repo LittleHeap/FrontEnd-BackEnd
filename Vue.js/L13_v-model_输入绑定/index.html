@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='username'>
+        <h3>{{username}}</h3>
+        <!-- 这样绑定username会监听组件的input事件，产生向上传值的效果，但是这里没有做向下传值 -->
+        <input-com v-model='username'></input-com>
+    </div>
+
+    <script>
+        Vue.component('input-com', {
+            props: ['username'],
+            template: `<input type="text" @input="$emit('input', $event.target.value)"/>`,
+            data: function() {
+                return {
+
+                }
+            }
+        });
+        let app = new Vue({
+            el: '#app',
+            data: {
+                username: ''
+            },
+            methods: {
+                changeEvt: function(data) {
+                    this.username = data;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="content">
+            <component :is='cmp'></component>
+        </div>
+        <button @click='chooseContent(1)'>首页</button>
+        <button @click='chooseContent(2)'>列表</button>
+        <button @click='chooseContent(3)'>新闻</button>
+        <button @click='chooseContent(4)'>个人</button>
+    </div>
+
+    <script>
+        let com1 = Vue.component('index-com', {
+            template: '<h1>首页</h1>'
+        });
+        let com2 = Vue.component('list-com', {
+            template: '<h1>列表</h1>'
+        });
+        let com3 = Vue.component('news-com', {
+            template: '<h1>新闻</h1>'
+        });
+        let com4 = Vue.component('me-com', {
+            template: '<h1>个人</h1>'
+        });
+        let app = new Vue({
+            el: '#app',
+            data: {
+                cmp: 'com1'
+            },
+            methods: {
+                chooseContent: function(num) {
+                    this.cmp = 'com' + num;
+                }
+            },
+            components: {
+                com1,
+                com2,
+                com3,
+                com4
+            }
+        });
+    </script>
+</body>
+
+</html>

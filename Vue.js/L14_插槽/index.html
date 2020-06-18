@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 不应用插槽slot每次父组件传值比较固定 -->
+        <alert-com :html='content'></alert-com>
+
+        <!-- 使用插槽slot可以灵活改变组件内slot区域的内容 -->
+        <alert-com-slot>
+            <!-- slot里面的内容变量只跟父元素有关 -->
+            <p>小心点！{{content}}</p>
+        </alert-com-slot>
+    </div>
+
+    <script>
+        Vue.component('alert-com', {
+            props: ['html'],
+            template: `        
+            <div class="alert">
+                <h1>温馨提示</h1>
+                <div class="content">
+                    {{html}}
+                </div>
+            </div>`
+        });
+
+        Vue.component('alert-com-slot', {
+            props: ['html'],
+            template: `        
+            <div class="alert">
+                <h1>温馨提示</h1>
+                <div class="content">
+                    <slot></slot>
+                </div>
+            </div>`
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                content: 'Be Careful'
+            }
+        });
+    </script>
+</body>
+
+</html>
