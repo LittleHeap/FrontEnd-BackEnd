@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='sub'>-</button>
+        <span>{{num}}</span>
+        <button @click='add'>+</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                num: 1,
+                high: 5,
+                low: -5
+            },
+            methods: {
+                add: function() {
+                    if (this.num < this.high) {
+                        this.num += 1;
+                    } else {
+                        alert('Most');
+                    }
+                },
+                sub: function() {
+                    if (this.num > this.low) {
+                        this.num -= 1;
+                    } else {
+                        alert('Least');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
