@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="add" @click='add'>
+        <ul>
+            <li v-for='(item,index) in arr'>{{index}}:{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                arr: [1, 2, 3, 4, 5],
+                cur: 6
+            },
+            methods: {
+                add: function() {
+                    this.arr.push(this.cur);
+                    this.cur++;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

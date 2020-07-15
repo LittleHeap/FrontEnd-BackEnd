@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <script src="layui.js"></script>
+</head>
+
+<body>
+    <!-- 用layui样式做一个按钮 -->
+    <button class="layui-btn">button</button>
+
+    <script>
+        //一般直接写在一个js文件中
+        layui.use(['layer', 'form'], function() {
+            var layer = layui.layer,
+                form = layui.form,
+                $ = layui.$;
+
+            layer.msg('Hello World');
+
+            $('button').click(function(e) {
+                layer.open({
+                    title: 'title',
+                    content: 'content'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

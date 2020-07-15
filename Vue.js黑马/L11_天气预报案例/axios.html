@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <input type="button" value="get" id="get">
+    <input type="button" value="post" id="post">
+
+    <script>
+        document.querySelector('#get').onclick = function() {
+            axios.get('https://autumnfish.cn/api/joke/list?num=3')
+                .then(function(response) {
+                    console.log(response);
+                }, function(err) {
+                    console.log(err);
+                });
+        }
+
+        document.querySelector('#post').onclick = function() {
+            axios.post('https://autumnfish.cn/api/user/reg', {
+                    username: 'jack'
+                })
+                .then(function(response) {
+                    console.log(response);
+                }, function(err) {
+                    console.log(err);
+                });
+        }
+    </script>
+</body>
+
+</html>

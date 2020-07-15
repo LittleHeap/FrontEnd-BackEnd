@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .imgDiv {
+            width: 200px;
+            height: 180px;
+        }
+        
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value='pre' @click='pre' v-show='imgIndex > 1'>
+        <div class='imgDiv'>
+            <img :src="imgSrc[imgIndex - 1]" alt="">
+        </div>
+        <input type="button" value='next' @click='next' v-show='imgIndex < imgSrc.length'>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: ['./imgs/1.png', './imgs/2.png', './imgs/3.png'],
+                imgIndex: 1
+            },
+            methods: {
+                pre: function() {
+                    this.imgIndex--;
+                },
+                next: function() {
+                    this.imgIndex++;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

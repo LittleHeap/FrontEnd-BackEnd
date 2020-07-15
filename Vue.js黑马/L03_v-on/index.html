@@ -13,6 +13,9 @@
         <button @click='sub'>-</button>
         <span>{{num}}</span>
         <button @click='add'>+</button>
+        <hr>
+        <!-- 事件修饰符 -->
+        <input type="text" @keyup.enter='sayHi'>
     </div>
 
     <script>
@@ -37,6 +40,9 @@
                     } else {
                         alert('Least');
                     }
+                },
+                sayHi: function() {
+                    alert('hi');
                 }
             }
         });

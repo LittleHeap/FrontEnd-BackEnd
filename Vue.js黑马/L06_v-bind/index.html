@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 正常v-bind写法 -->
+        <img v-bind:src="imgSrc" alt="">
+        <!-- 简写 -->
+        <img :src="imgSrc" alt="" :title='imgTitle + "!"' :class='isActive?"active":""' @click='toggleActive'>
+        <!-- 使用对象方式修饰class -->
+        <img :src="imgSrc" alt="" :class='{active:isActive}' @click='toggleActive'>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+                imgTitle: 'baidu',
+                isActive: true
+            },
+            methods: {
+                toggleActive: function() {
+                    this.isActive = !this.isActive;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

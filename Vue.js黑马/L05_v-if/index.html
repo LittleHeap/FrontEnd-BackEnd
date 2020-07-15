@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if直接操纵DOM树，从根本上删除或加载 -->
+        <div v-if='isShow'>内容</div>
+        <input type="button" value="改变显示状态" @click='change'>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: false
+            },
+            methods: {
+                change: function() {
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

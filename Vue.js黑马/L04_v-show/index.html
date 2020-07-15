@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-show本质是在调整display -->
+        <div v-show='isShow'>内容</div>
+        <input type="button" value='切换显示状态' @click='change'>
+        <div v-show='age > 18'>age大于18才显示的内容</div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true,
+                age: 18
+            },
+            methods: {
+                change: function() {
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
